@@ -4,6 +4,18 @@ An autonomous 3D simulation and motion planning workspace for the **SO-101 (SO-A
 
 ---
 
+## 📝 Project Description
+
+This workspace is designed to simulate and control the **SO-101 (SO-ARM101)** 6-axis robotic arm in a virtual 3D environment for automated material handling. It provides a complete control stack utilizing ROS 2 (Robot Operating System) and MoveIt 2 to calculate collision-free trajectories and interact with objects in Gazebo.
+
+### How It Works
+* **Simulation Scene:** A virtual environment is spawned in Gazebo Sim containing the SO-101 arm model and target objects.
+* **Service-Oriented Control:** Rather than manually scripting joint trajectory waypoints, the custom C++ `moveit_server` node exposes high-level service endpoints. Other nodes or developers can trigger picks, places, or joint movements with simple service requests.
+* **Kinematics & Planning:** MoveIt 2 handles the complex mathematics of inverse kinematics (converting target Cartesian coordinates into 6-axis joint angles) and schedules joint trajectories using OMPL path planners to ensure smooth, collision-free execution.
+* **Teleoperation Support:** Includes configurations for both follower and leader arms to facilitate manual teleoperation or demonstration recording.
+
+---
+
 ## 🌟 Key Components
 
 The repository is structured into standard ROS 2 packages inside the `src/` directory:
